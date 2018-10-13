@@ -26,3 +26,7 @@ network:
 
 
 # netplan apply
+
+### git
+````
+# git add -A		- Add all files.
