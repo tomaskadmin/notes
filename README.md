@@ -45,4 +45,5 @@ network:
 # puppet cert list
 # puppet cert sign u18node01.lab.local
 # puppet cert sign --all                      - Sign certificate requests for multiple nodes at once
+# puppet agent --test
 ````
