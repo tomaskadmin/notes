@@ -37,13 +37,13 @@ network:
 # git add -A                                  - Add all files.
 ````
 
-### Puppet (Ubuntu 18.04)
+### Puppet 5 (Ubuntu 18.04)
 ````
-# wget https://apt.puppetlabs.com/puppet-release-bionic.deb
-# dpkg -i puppet-release-bionic.deb
+# wget https://apt.puppetlabs.com/puppet5-release-bionic.deb
+# dpkg -i puppet5-release-bionic.deb
 
-# apt-get install puppetmaster                - On master
-# apt-get install puppet                      - On slave
+# apt-get install puppetserver                - On master
+# apt-get install puppet-agetn                - On slave
 ````
 ````
 # puppet cert list
