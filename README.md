@@ -32,3 +32,11 @@ network:
 ````
 # git add -A		- Add all files.
 ````
+
+### Puppet (Ubuntu 18.04]
+````
+# wget https://apt.puppetlabs.com/puppet-release-bionic.deb
+# dpkg -i puppet-release-bionic.deb
+
+
+````
