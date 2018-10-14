@@ -30,7 +30,7 @@ network:
 
 ### git
 ````
-# git add -A		- Add all files.
+# git add -A                                  - Add all files.
 ````
 
 ### Puppet (Ubuntu 18.04]
