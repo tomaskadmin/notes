@@ -38,5 +38,6 @@ network:
 # wget https://apt.puppetlabs.com/puppet-release-bionic.deb
 # dpkg -i puppet-release-bionic.deb
 
-
+# apt-get install puppetmaster                - On master
+# apt-get install puppet                      - On slave
 ````
