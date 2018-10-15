@@ -51,3 +51,10 @@ network:
 # puppet cert sign --all                      - Sign certificate requests for multiple nodes at once
 # puppet agent --test
 ````
+#### examples
+````
+file { 'motd':
+  path    => '/etc/motd',
+  content => 'Tomorrow is another day',
+}
+````
