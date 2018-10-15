@@ -64,4 +64,6 @@ file { 'motd':
 ````
 # puppet resource service zabbix-agent ensure=stopped enable=false
 # puppet resource package zabbix-agent ensure=purged
+
+# puppet module list --tree
 ````
