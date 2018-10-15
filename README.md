@@ -58,3 +58,7 @@ file { 'motd':
   content => "Tomorrow is another day!\n",
 }
 ````
+````
+# puppet resource service zabbix-agent ensure=stopped enable=false
+# puppet resource package zabbix-agent ensure=purged
+````
