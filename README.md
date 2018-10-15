@@ -51,6 +51,9 @@ network:
 # puppet cert sign --all                      - Sign certificate requests for multiple nodes at once
 # puppet agent --test
 ````
+````
+https://makandracards.com/makandra/1352-get-syntax-highlighting-for-puppet-files-pp-in-vi
+````
 #### examples
 ````
 file { 'motd':
