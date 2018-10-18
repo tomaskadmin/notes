@@ -36,6 +36,12 @@ network:
 ````
 # git add -A                                  - Add all files.
 ````
+### KVM
+````
+virsh dumpxml --migratable vm01 > vm01.xml
+...
+virsh define vm01.xml
+````
 
 ### Puppet 5 (Ubuntu 18.04)
 ````
