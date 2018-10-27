@@ -11,6 +11,10 @@ $$             - Process ID of the shell
 ${1//[0-9]/}   - Removes all digits from $1
 ${1//[!0-9]/}  - Removes all except digits from $1
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  // Gets the script's source file pathname, strips it to just the path portion,
+  // cds to that path, then uses pwd to return the (effectively) full path of
+  // the script.
 
 EXAMPLES:
 
