@@ -1,6 +1,4 @@
-# notes
-
-### Awesome links
+# Awesome Links
 
 https://hackr.io/
 

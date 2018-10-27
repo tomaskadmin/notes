@@ -1,0 +1,29 @@
+--- BASH -----------------------------------------------------------------------
+
+$0             - Name of the script itself
+$1, $2, etc.   - Positional parameters
+$*             - Positional parameters as a single word (within double quotes)
+$@             - Positional parameters as separate words (within double quotes)
+$#             - Number of positional parameters
+$?             - Exit status of the most recently executed command
+$$             - Process ID of the shell
+
+${1//[0-9]/}   - Removes all digits from $1
+${1//[!0-9]/}  - Removes all except digits from $1
+
+
+EXAMPLES:
+
+if [[ -z "$@" ]]; then
+  echo "Need arguments like: alfa1"
+  exit 1
+fi
+
+if [[ $1 == alpha* ]]; then
+  echo "ALPHA"
+elif [[ $1 == beta* ]]; then
+  echo "BETA"
+else
+  echo "Failed to detect alpha/beta"
+  exit 1
+fi
