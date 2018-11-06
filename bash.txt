@@ -17,6 +17,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   // the script.
 
 
+-------------------------------------------------------------------------------
+CONDITIONAL ACTIONS
+
+rm foobar && echo "Success"
+rm foobar || echo "Fail"
+rm foobar && echo "Success" || echo "Fail"
+
+
+--------------------------------------------------------------------------------
 EXAMPLES:
 
 if [[ -z "$@" ]]; then
