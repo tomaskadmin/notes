@@ -11,36 +11,42 @@ mysqld_safe - is the recommended way to start a mysqld server on Unix.
 ENABLE LOGS:
 
 // To enable error log add following
-[mysqld_safe]
-log_error=/var/log/mysql/mysql_error.log
-[mysqld]
-log_error=/var/log/mysql/mysql_error.log
+  [mysqld_safe]
+  log_error=/var/log/mysql/mysql_error.log
+  [mysqld]
+  log_error=/var/log/mysql/mysql_error.log
 
 // To enable general query log add following
-general_log_file        = /var/log/mysql/mysql.log
-general_log             = 1
+  general_log_file        = /var/log/mysql/mysql.log
+  general_log             = 1
 
 // To enable Slow Query Log add following
-log_slow_queries       = /var/log/mysql/mysql-slow.log
-long_query_time = 2
-log-queries-not-using-indexes
+  log_slow_queries       = /var/log/mysql/mysql-slow.log
+  long_query_time = 2
+  log-queries-not-using-indexes
+
+
+BACKUPS:
+
+  innobackupex  --stream=tar ./| lz4 | ssh upload@backup1  \
+    "cat - > /ssd0/upload/sql/mysql_backup.tar.lz4"
 
 
 EXAMPLES:
 
-mysql> CREATE USER 'newuser'@'%' IDENTIFIED BY 'passwrod';
-mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwrod';
-mysql> CREATE DATABASE mydb;
-mysql> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
-  // The asterisks in this command refer to the database and table
-  // (respectively).
-mysql> FLUSH PRIVILEGES;
+  mysql> CREATE USER 'newuser'@'%' IDENTIFIED BY 'passwrod';
+  mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwrod';
+  mysql> CREATE DATABASE mydb;
+  mysql> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+    // The asterisks in this command refer to the database and table
+    // (respectively).
+  mysql> FLUSH PRIVILEGES;
 
-mysql> UPDATE mytable SET field1 = newvalue1, field2 = newvalue2 [WHERE Clause];
+  mysql> UPDATE mytable SET field1 = newvalue1, field2 = newvalue2 [WHERE Clause];
 
-mysql> ALTER USER 'user'@'localhost' IDENTIFIED BY 'newpasswrod';
-// or
-mysql> SET PASSWORD FOR 'user'@'localhost' ='newpassword'
+  mysql> ALTER USER 'user'@'localhost' IDENTIFIED BY 'newpasswrod';
+    // or
+  mysql> SET PASSWORD FOR 'user'@'localhost' ='newpassword'
 
 
 // Get size of MySQL database:
@@ -50,7 +56,7 @@ FROM information_schema.tables
 GROUP BY table_schema;
 
 // Get the size of the specific table in MySQL:
-SELECT
+mysql> SELECT
     table_name AS `Table`,
     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB`
 FROM information_schema.TABLES
@@ -58,9 +64,19 @@ WHERE table_schema = ‘db_name’
     AND table_name = ‘table_name’;
 
 // Get the size of all tables, descending order:
-SELECT
+mysql> SELECT
      table_schema as `Database`,
      table_name AS `Table`,
      round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB`
 FROM information_schema.TABLES
 ORDER BY (data_length + index_length) DESC;
+
+
+// Drop multiple databases;
+#!/bin/bash
+
+DB_TO_DROP=`mysql -s -e "show databases;" |grep "somedb_"`
+for db in $DB_TO_DROP; do
+    echo "DROPPING: $db"
+    #mysql -s -e "DROP DATABASE $db;"
+done

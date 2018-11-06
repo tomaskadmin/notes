@@ -1,0 +1,6 @@
+--- LINUX ----------------------------------------------------------------------
+
+EXAMPLES:
+
+// dd a remote disk using SSH
+ssh user@remote "dd if=/dev/sda | gzip -1 -" | dd of=image.gz
