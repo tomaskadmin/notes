@@ -11,16 +11,19 @@ mysqld_safe - is the recommended way to start a mysqld server on Unix.
 ENABLE LOGS:
 
 // To enable error log add following
+
 [mysqld_safe]
 log_error=/var/log/mysql/mysql_error.log
 [mysqld]
 log_error=/var/log/mysql/mysql_error.log
 
 // To enable general query log add following
+
 general_log_file        = /var/log/mysql/mysql.log
 general_log             = 1
 
 // To enable Slow Query Log add following
+
 log_slow_queries       = /var/log/mysql/mysql-slow.log
 long_query_time = 2
 log-queries-not-using-indexes
