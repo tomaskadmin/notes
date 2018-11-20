@@ -71,9 +71,9 @@ mysql> SET PASSWORD FOR 'user'@'localhost' ='newpassword'
 mysql> TRUNCATE [TABLE] tbl_name
 
 
-// Get size of MySQL database:
+// Get size of MySQL databases:
 
-SELECT table_schema "mydb",
+mysql> SELECT table_schema "mydb",
         ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB"
 FROM information_schema.tables
 GROUP BY table_schema;

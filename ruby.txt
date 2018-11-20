@@ -1,0 +1,28 @@
+--------------------------------------------------------------------------------
+INSTALL RVM
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+\curl -sSL https://get.rvm.io | bash -s stable
+
+usermod -a -G rvm deployer
+
+rvm install 2.4.4
+
+
+  // more -> https://rvm.io/
+
+
+gem install bundler
+bundle check
+bundle install
+
+apt install libcurl3-dev
+apt-get install libmysqlclient-dev
+
+
+curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh -o install_nvm.sh
+bash install_nvm.sh
+apt install yarn
+
+
+INSTALL DOCKER

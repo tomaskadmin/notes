@@ -9,3 +9,6 @@ OpenVAS
 Nessus
 Sophos
 Apache Metron
+
+ELK
+Graylog
