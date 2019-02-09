@@ -8,19 +8,6 @@ mysqld_safe - is the recommended way to start a mysqld server on Unix.
   sections in option files.
 
 --------------------------------------------------------------------------------
-RESET ROOT PASSWORD
-
-/etc/init.d/mysql stop
-/usr/sbin/mysqld --skip-grant-tables --skip-networking &
-mysql -u root
-mysql> USE mysql;
-mysql> UPDATE mysql.user SET authentication_string = PASSWORD('pass123') WHERE
-    User = 'root'
-/etc/init.d/mysql stop
-/etc/init.d/mysql start
-
-
---------------------------------------------------------------------------------
 ENABLE LOGS:
 
 // To enable error log add following
@@ -50,25 +37,10 @@ innobackupex  --stream=tar ./| lz4 | ssh upload@backup1  \
 
 EXAMPLES:
 
-mysql> CREATE USER 'newuser'@'%' IDENTIFIED BY 'passwrod';
-mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwrod';
-mysql> CREATE DATABASE mydb;
-mysql> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
-  // The asterisks in this command refer to the database and table
-  // (respectively).
-mysql> FLUSH PRIVILEGES;
-
-mysql> UPDATE mytable SET field1 = newvalue1, field2 = newvalue2 [WHERE Clause];
-
-mysql> ALTER USER 'user'@'localhost' IDENTIFIED BY 'newpasswrod';
-  // or
-mysql> SET PASSWORD FOR 'user'@'localhost' ='newpassword'
 
 
-// Truncate table (drop and then re-create again (including any indexes and
-   constraints)
 
-mysql> TRUNCATE [TABLE] tbl_name
+
 
 
 // Get size of MySQL databases:
