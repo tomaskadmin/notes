@@ -106,3 +106,5 @@ for db in $DB_TO_DROP; do
     echo "DROPPING: $db"
     #mysql -s -e "DROP DATABASE $db;"
 done
+
+test
